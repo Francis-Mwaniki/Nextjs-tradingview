@@ -16,9 +16,9 @@ const AdvancedRealTimeChart = dynamic(
 
 const TradingView = () => {
   const [showChart, setShowChart] = useState(true);
-  const [showTechnicalAnalysis, setShowTechnicalAnalysis] = useState(true);
-  const [showMarketOverview, setShowMarketOverview] = useState(true);
-  const [showScreener, setShowScreener] = useState(true);
+  const [showTechnicalAnalysis, setShowTechnicalAnalysis] = useState(false);
+  const [showMarketOverview, setShowMarketOverview] = useState(false);
+  const [showScreener, setShowScreener] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const toggleSidebar = () => {
@@ -29,22 +29,46 @@ const TradingView = () => {
     setIsSidebarOpen(false);
   };
 
+  const showOnlyChart=()=>{
+    setShowChart(true)
+    setShowScreener(false)
+    setShowTechnicalAnalysis(false)
+    setShowMarketOverview(false)
+  }
+  const showOnlyTechnicalAnalysis=()=>{
+    setShowChart(false)
+    setShowScreener(false)
+    setShowTechnicalAnalysis(true)
+    setShowMarketOverview(false)
+  }
+  const showOnlyMarketOverview=()=>{
+    setShowChart(false)
+    setShowScreener(false)
+    setShowTechnicalAnalysis(false)
+    setShowMarketOverview(true)
+  }
+  const showOnlyScreener=()=>{
+    setShowChart(false)
+    setShowScreener(true)
+    setShowTechnicalAnalysis(false)
+    setShowMarketOverview(false)
+  }
   return (
     <div className='flex'>
       {/* Sidebar */}
       <div className={`sm:w-1/4 w-3/4  min-h-screen p-4 ${isSidebarOpen ? 'flex flex-col justify-start items-center absolute left-0 inset-y-0 z-10 bg-gray-200 min-h-screen' : 'hidden md:block'}`} onClick={closeSidebar}>
         <h2 className='text-lg mb-2'>Dashboard</h2>
         <div className='space-y-2'>
-        <button onClick={() => setShowChart(!showChart)} className='bg-slate-900 sm:bg-gray-100 sm:text-black sm:hover:bg-gray-400 hover:bg-slate-700 text-white py-2 px-4 rounded-lg text-sm font-light flex justify-center justify-self-center items-center w-full'>
+        <button onClick={showOnlyChart} className='bg-slate-900 sm:bg-gray-100 sm:text-black sm:hover:bg-gray-400 hover:bg-slate-700 text-white py-2 px-4 rounded-lg text-sm font-light flex justify-center justify-self-center items-center w-full'>
             {showChart ? 'Hide Chart' : 'Show Chart'}
           </button>
-          <button onClick={() => setShowTechnicalAnalysis(!showTechnicalAnalysis)} className='bg-slate-900 sm:bg-gray-100 sm:text-black sm:hover:bg-gray-400 hover:bg-slate-700 text-white py-2 px-4 rounded-lg text-sm font-light flex justify-center justify-self-center items-center w-full'>
+          <button onClick={showOnlyTechnicalAnalysis} className='bg-slate-900 sm:bg-gray-100 sm:text-black sm:hover:bg-gray-400 hover:bg-slate-700 text-white py-2 px-4 rounded-lg text-sm font-light flex justify-center justify-self-center items-center w-full'>
             {showTechnicalAnalysis ? 'Hide Technical Analysis' : 'Show Technical Analysis'}
           </button>
-          <button onClick={() => setShowMarketOverview(!showMarketOverview)} className='bg-slate-900 sm:bg-gray-100 sm:text-black sm:hover:bg-gray-400 hover:bg-slate-700 text-white py-2 px-4 rounded-lg text-sm font-light flex justify-center justify-self-center items-center w-full'>
+          <button onClick={showOnlyMarketOverview} className='bg-slate-900 sm:bg-gray-100 sm:text-black sm:hover:bg-gray-400 hover:bg-slate-700 text-white py-2 px-4 rounded-lg text-sm font-light flex justify-center justify-self-center items-center w-full'>
             {showMarketOverview ? 'Hide Market Overview' : 'Show Market Overview'}
           </button>
-          <button onClick={() => setShowScreener(!showScreener)} className='bg-slate-900 sm:bg-gray-100 sm:text-black sm:hover:bg-gray-400 hover:bg-slate-700 text-white py-2 px-4 rounded-lg text-sm font-light flex justify-center justify-self-center items-center w-full'>
+          <button onClick={showOnlyScreener} className='bg-slate-900 sm:bg-gray-100 sm:text-black sm:hover:bg-gray-400 hover:bg-slate-700 text-white py-2 px-4 rounded-lg text-sm font-light flex justify-center justify-self-center items-center w-full'>
             {showScreener ? 'Hide Screener' : 'Show Screener'}
           </button>
           
