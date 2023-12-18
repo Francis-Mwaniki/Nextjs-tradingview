@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@apollo/client": "^3.8.8",
+    "@headlessui/react": "^1.7.17",
     "@headlessui/tailwindcss": "^0.2.0",
     "@heroicons/react": "1.0.6",
     "@react-email/components": "0.0.12",

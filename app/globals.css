@@ -1,3 +1,87 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* global.css */
+
+/* Customizing scrollbar styles */
+/* For WebKit-based browsers */
+::-webkit-scrollbar {
+    width: 8px; /* Set the width of the scrollbar */
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb {
+    background: #3a0453; /* Set the color of the scrollbar handle */
+    border-radius: 3px; /* Set the border radius of the scrollbar handle */
+  }
+  
+  /* Handle on drag */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #06064d; /* Change color on hover */
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Set the color of the scrollbar track */
+  }
+  
+  /* Corner */
+  ::-webkit-scrollbar-corner {
+    background: transparent; /* Set the color of the scrollbar corner */
+  }
+  
+  
+  .smooth {
+    transition: all 0.2s ease-in-out;
+    scale: 1.03;
+    animation: fadeIn 0.3s ease-in-out;
+    
+    
+     
+  }
+  
+  .smooth:hover {
+    scale: 1.05;
+  }
+  
+  .smooth:focus {
+    scale: 1.05;
+  }
+  
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+   50% {
+      opacity: 0.5;
+      transform: translateY(10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+      }
+  }
+
+  .backdropFilter{
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+
+    .backdropFilterDark{
+        backdrop-filter: blur(10px);
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .smooth-ease-out {
+        transition: all 0.2s ease-out;
+        scale: 1.03;
+        animation: fadeIn 0.3s ease-out;
+    }
+
+    .card{
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        
+    }
