@@ -6,6 +6,21 @@ import TechnicalAnalysisComponent from '@/components/TechnicalAnalysisComponent'
 import MarketOverviewComponent from '@/components/MarketOverviewComponent';
 import TickerTapeComponent from '@/components/TickerTapeComponent';
 import ScreenerComponent from '@/components/ScreenerComponent';
+import Navbar from '@/components/Navbar';
+import DashboardNav from '@/components/UInterfaces/DashboardNav';
+import Inputs from '@/components/UInterfaces/Inputs';
+// interface Inputs {
+//   amount: number;
+//   trailingBuy: number;
+//   trailingStopLoss: number;
+//   takeProfit: number;
+//   quantity: number;
+//   setAmount: (amount: number) => void;
+//   setTrailingBuy: (trailingBuy: number) => void;
+//   setTrailingStopLoss: (trailingStopLoss: number) => void;
+//   setTakeProfit: (takeProfit: number) => void;
+//   setQuantity: (quantity: number) => void;
+// }
 
 const AdvancedRealTimeChart = dynamic(
   () => import('react-ts-tradingview-widgets').then((w) => w.AdvancedRealTimeChart),
@@ -20,6 +35,16 @@ const TradingView = () => {
   const [showMarketOverview, setShowMarketOverview] = useState(false);
   const [showScreener, setShowScreener] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [isSmartTrade, setIsSmartTrade] = useState(false);
+  const [amount, setAmount] = useState<number | null>(null);
+  const [trailingBuy, setTrailingBuy] =  useState<number | null>(null);
+  const [trailingStopLoss, setTrailingStopLoss] = useState<number | null>(null);
+  const [takeProfit, setTakeProfit] = useState<number | null>(null);
+  const [quantity, setQuantity] = useState<number | null>(null);
+  const [sequence, setSequence] = useState<number | null>(null);
+  const [stopLoss, setStopLoss] = useState<number | null>(null);
+
+
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
@@ -34,29 +59,46 @@ const TradingView = () => {
     setShowScreener(false)
     setShowTechnicalAnalysis(false)
     setShowMarketOverview(false)
+    setIsSmartTrade(false)
   }
   const showOnlyTechnicalAnalysis=()=>{
     setShowChart(false)
     setShowScreener(false)
     setShowTechnicalAnalysis(true)
     setShowMarketOverview(false)
+    setIsSmartTrade(false)
   }
   const showOnlyMarketOverview=()=>{
     setShowChart(false)
     setShowScreener(false)
     setShowTechnicalAnalysis(false)
     setShowMarketOverview(true)
+    setIsSmartTrade(false)
   }
   const showOnlyScreener=()=>{
     setShowChart(false)
     setShowScreener(true)
     setShowTechnicalAnalysis(false)
     setShowMarketOverview(false)
+    setIsSmartTrade(false)
   }
+  const showOnlySmartTrade=()=>{
+    setIsSmartTrade(true)
+    setShowMarketOverview(false)
+    setShowScreener(false)
+    setShowTechnicalAnalysis(false)
+    setShowChart(false)
+    
+  }
+
   return (
+    <>
+    {/* <Navbar/> */}
+    <div className='my-2' />
+    <DashboardNav />
     <div className='flex'>
       {/* Sidebar */}
-      <div className={`sm:w-1/4 w-3/4  min-h-screen p-4 ${isSidebarOpen ? 'flex flex-col justify-start items-center absolute left-0 inset-y-0 z-10 bg-gray-200 min-h-screen' : 'hidden md:block'}`} onClick={closeSidebar}>
+      <div className={`sm:w-1/4 w-3/4  min-h-screen p-4 ${isSidebarOpen ? 'flex flex-col justify-start items-center absolute left-0 inset-y-0 z-10 bg-gray-200 min-h-screen' : 'hidden md:block '}`} onClick={closeSidebar}>
         <h2 className='text-lg mb-2'>Dashboard</h2>
         <div className='space-y-2'>
         <button onClick={showOnlyChart} className='bg-slate-900 sm:bg-gray-100 sm:text-black sm:hover:bg-gray-400 hover:bg-slate-700 text-white py-2 px-4 rounded-lg text-sm font-light flex justify-center justify-self-center items-center w-full'>
@@ -70,6 +112,12 @@ const TradingView = () => {
           </button>
           <button onClick={showOnlyScreener} className='bg-slate-900 sm:bg-gray-100 sm:text-black sm:hover:bg-gray-400 hover:bg-slate-700 text-white py-2 px-4 rounded-lg text-sm font-light flex justify-center justify-self-center items-center w-full'>
             {showScreener ? 'Hide Screener' : 'Show Screener'}
+          </button>
+          {/* smart trading */}
+          <button className='bg-slate-900 sm:bg-gray-100 sm:text-black sm:hover:bg-gray-400 hover:bg-slate-700 text-white py-2 px-4 rounded-lg text-sm font-light flex justify-center justify-self-center items-center w-full'
+          onClick={showOnlySmartTrade}
+          >
+            Smart Trading
           </button>
           
         </div>
@@ -144,8 +192,19 @@ const TradingView = () => {
             <ScreenerComponent colorTheme='light' width='100%' height={600} />
           </Card>
         )}
+
+        {/* Smart Trade */}
+        {
+          isSmartTrade && (
+            <Inputs  amount={amount} trailingBuy={trailingBuy} trailingStopLoss={trailingStopLoss} takeProfit={takeProfit} quantity={quantity} setAmount={setAmount} setTrailingBuy={setTrailingBuy} setTrailingStopLoss={setTrailingStopLoss} setTakeProfit={setTakeProfit} setQuantity={setQuantity} 
+            sequence={sequence} setSequence={setSequence} stopLoss={stopLoss} setStopLoss={setStopLoss}
+            />
+          )
+        }
       </div>
     </div>
+    </>
+    
   );
 };
 
