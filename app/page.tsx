@@ -128,7 +128,7 @@ const TradingView = () => {
         {/* Mobile Toggle Button */}
         <div className='md:hidden text-right absolute right-0 top-2 m-1 z-10'>
           <button className='block text-gray-500 hover:text-gray-600 focus:text-gray-600 focus:outline-none 
-            transition duration-150 ease-in-out 
+            transition duration-150 ease-in-out  bg-gray-200 rounded-lg m-1 p-2
           ' onClick={toggleSidebar}>
            {
               isSidebarOpen ? (
