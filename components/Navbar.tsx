@@ -13,14 +13,14 @@ const Navbar = () => {
     <nav className=" p-4 relative mb-5">
         <div className=' fixed inset-x-0 top-0 bg-gray-800 z-20 p-3'>
   <div className="max-w-7xl mx-auto flex justify-between items-center">
-        <div className="flex items-center my-1">
+{/*         <div className="flex items-center my-1">
           <Link prefetch={false} 
            href="/" className="text-white font-bold text-xl">
           <img src='/logo.svg' 
            className='h-10 w-full'
           />
           </Link>
-        </div>
+        </div> */}
         <div className="hidden md:flex items-center space-x-4  ">
           <Link  prefetch={false}  href="/" className="text-white transition-all bg-gray-600 hover:bg-gray-700 rounded-lg py-2 px-3 duration-300 hover:text-gray-300">
             Home
