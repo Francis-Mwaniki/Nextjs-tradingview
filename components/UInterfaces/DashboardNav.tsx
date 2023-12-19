@@ -81,7 +81,7 @@ const DashboardNav = () => {
         </div>
         <div className="md:hidden">
           <button onClick={toggleDashboardNav} 
-          className="text-black focus:outline-none">
+          className="text-black focus:outline-none bg-blue-700 rounded-lg p-2 m-1">
       {
          isOpen ? (
                 <svg className="h-6 w-6 fill-current" viewBox="0 0 24 24">
