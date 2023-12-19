@@ -65,17 +65,17 @@ const DashboardNav = () => {
           <button 
             onClick={openTradingView}
             className="text-black transition-all font-light bg-gray-200 hover:bg-gray-100 rounded-lg py-2 px-3 duration-300 hover:text-gray-900">
-            TradingView
+            Just a modal 
           </button>
           <button  
            onClick={openTelegram}
            className="text-black transition-all font-light bg-gray-200 hover:bg-gray-100 rounded-lg py-2 px-3 duration-300 hover:text-gray-900">
-            Notify On Telegram
+            Notify Me
           </button>
           <button  
               onClick={openDiscord}
            className="text-black transition-all font-light bg-gray-200 hover:bg-gray-100 rounded-lg py-2 px-3 duration-300 hover:text-gray-900">
-            Notify On Discord
+            Try this
           </button>
           
         </div>
