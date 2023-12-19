@@ -124,12 +124,12 @@ const DashboardNav = () => {
           <button 
             onClick={openTelegram}
             className="block text-black py-2 transition-all px-2 rounded-lg durat1on-300 hover:bg-gray-200">
-            Notify On Telegram
+            Notify Me
         </button>
           <button
             onClick={openDiscord}
              className="block text-black py-2 transition-all px-2 rounded-lg durat1on-300 hover:bg-gray-200">
-            Notify OnDiscord
+           Try it 
         </button>
          
           
