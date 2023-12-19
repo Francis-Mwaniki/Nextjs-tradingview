@@ -98,7 +98,7 @@ const TradingView = () => {
     <DashboardNav />
     <div className='flex'>
       {/* Sidebar */}
-      <div className={`sm:w-1/4 w-3/4  min-h-screen p-4 ${isSidebarOpen ? 'flex flex-col justify-start items-center absolute left-0 inset-y-0 z-10 bg-gray-200 min-h-screen' : 'hidden md:block '}`} onClick={closeSidebar}>
+      <div className={`sm:w-1/4 w-3/4  h-auto p-4 ${isSidebarOpen ? 'flex flex-col justify-start items-center absolute left-0 inset-y-0 z-10 bg-gray-200 h-auto' : 'hidden md:block '}`} onClick={closeSidebar}>
         <h2 className='text-lg mb-2'>Dashboard</h2>
         <div className='space-y-2'>
         <button onClick={showOnlyChart} className='bg-slate-900 sm:bg-gray-100 sm:text-black sm:hover:bg-gray-400 hover:bg-slate-700 text-white py-2 px-4 rounded-lg text-sm font-light flex justify-center justify-self-center items-center w-full'>
