@@ -96,7 +96,7 @@ const TradingView = () => {
     {/* <Navbar/> */}
     <div className='my-2' />
     <DashboardNav />
-    <div className='flex'>
+    <div className=''>
       {/* Sidebar */}
       <div className={`sm:w-1/4 w-3/4  h-auto p-4 ${isSidebarOpen ? 'flex flex-col justify-start items-center absolute left-0 inset-y-0 z-10 bg-gray-200 h-auto' : 'hidden md:block '}`} onClick={closeSidebar}>
         <h2 className='text-lg mb-2'>Dashboard</h2>
