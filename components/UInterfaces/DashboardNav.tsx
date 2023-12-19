@@ -42,9 +42,7 @@ const DashboardNav = () => {
         <div className="flex items-center my-1">
           <Link prefetch={false} 
            href="/" className="text-black font-bold text-xl">
-         <img  src='/logo.svg'
-              className='h-10 w-full'
-         />
+         MENU
           </Link>
         </div>
         <div className="hidden md:flex items-center space-x-4  ">
